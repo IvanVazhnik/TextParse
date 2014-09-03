@@ -1,6 +1,7 @@
 package logic;
 
-
+import java.util.ArrayList;
+import java.util.Collections;
 
 
 
@@ -11,16 +12,19 @@ public class WordReplace {
 		String[] str = msg.split("\\s+");
         StringBuilder sb = new StringBuilder();
       
-        String buff;
-        buff = str[str.length-1];
-        str[str.length-1]=str[0];
-        str[0]=buff;
+             	ArrayList<String> words = new ArrayList<String>();
+        	for(String s : str){
+        		words.add(s);
+        		
+        	}
+        	Collections.swap(words, 0, words.size());
         
-        for (int i = 0; i <str.length; i++) {
-               sb.append(str[i] + " ");
-           }
-        
-        
+        for(String s: words){
+        	sb.append(s+" ");
+        	
+        }
+            	
+            
     
         return sb.toString().trim();
 		
